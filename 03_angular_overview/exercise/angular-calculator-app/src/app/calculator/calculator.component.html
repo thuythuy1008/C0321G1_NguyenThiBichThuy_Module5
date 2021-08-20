@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="text-center text-danger">Calculator</h1>
+  <div class="form-group col-4">
+    <label>First operand:</label>
+    <input class="form-control" type="number" [(ngModel)]="firstOperand"/>
+  </div>
+  <div class="form-group col-4">
+    <label>Operator:</label>
+    <select class="form-control" [(ngModel)]="operator">
+      <option value="+">Addition (+)</option>
+      <option value="-">Subtraction (-)</option>
+      <option value="*">Multiplication (*)</option>
+      <option value="/">Division (/)</option>
+    </select>
+  </div>
+  <div class="form-group col-4">
+    <label>Second operand:</label>
+    <input class="form-control" type="number" [(ngModel)]="secondOperand"/>
+  </div>
+  <button type="button" class="btn btn-primary mt-2" (click)="sum()">Result</button>
+  <div>
+    <h3>Result: {{result}}</h3>
+  </div>
+</div>
