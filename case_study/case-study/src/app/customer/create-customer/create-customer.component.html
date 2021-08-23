@@ -1,1 +1,71 @@
-<p>create-customer works!</p>
+<app-header></app-header>
+<app-navbar></app-navbar>
+<h1 class="text-center" style="color:crimson">Create Customer</h1>
+<a class="btn btn-primary mb-2 ml-4" href="/customer" role="button">Customer list</a>
+
+<form id="form"  method="post">
+  <input type="hidden" />
+  <div class="container">
+    <div class="form-group">
+      <label>Customer Code:</label>
+      <input type="text" class="form-control" >
+    </div>
+
+    <div class="form-group">
+      <label>Customer Name:</label>
+      <input type="text" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Customer Birthday:</label>
+      <input class="form-control" type="date" >
+    </div>
+
+    <div class="form-group">
+      <label>Customer Gender:</label>
+      <select class="form-control" >
+        <option value="0" >Male</option>
+        <option value="1" >Female</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Customer Id Card:</label>
+      <input type="text" class="form-control" >
+    </div>
+
+    <div class="form-group">
+      <label>Customer Phone:</label>
+      <input type="text" class="form-control" >
+    </div>
+
+    <div class="form-group">
+      <label>Customer Email:</label>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" aria-label="Recipient's username"
+               aria-describedby="basic-addon2">
+        <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Customer Address:</label>
+      <input type="text" class="form-control" >
+    </div>
+
+    <div class="form-group">
+      <label>Customer Type:</label>
+<!--      <select class="form-control">-->
+<!--        <option th:each="item:${customerTypeList}" th:text="${item.customerTypeName}"-->
+<!--                th:value="${item.customerTypeId}"></option>-->
+<!--      </select>-->
+    </div>
+
+    <div>
+      <input class="btn btn-warning" type="submit" value="Create customer">
+    </div>
+  </div>
+</form>
+
+<app-footer></app-footer>
+
