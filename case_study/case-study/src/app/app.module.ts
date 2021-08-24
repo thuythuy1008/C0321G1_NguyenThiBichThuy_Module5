@@ -17,6 +17,7 @@ import { ListContractComponent } from './contract/list-contract/list-contract.co
 import { CreateContractComponent } from './contract/create-contract/create-contract.component';
 import { ListContractDetailComponent } from './contract_detail/list-contract-detail/list-contract-detail.component';
 import { CreateContractDetailComponent } from './contract_detail/create-contract-detail/create-contract-detail.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CreateContractDetailComponent } from './contract_detail/create-contract
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

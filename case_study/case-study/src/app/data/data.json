@@ -1,0 +1,164 @@
+{
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinium"
+    },
+    {
+      "id": 1,
+      "name": "Gold"
+    },
+    {
+      "id": 1,
+      "name": "Silver"
+    },
+    {
+      "id": 1,
+      "name": "Member"
+    }
+  ],
+  "customer": [
+    {
+      "customerId": 1,
+      "customerCode": "KH-0001",
+      "customerName": "Nguyen Van A",
+      "customerBirthday": "1997-08-10",
+      "customerGender": 1,
+      "customerIdCard": "097999999",
+      "customerPhone": "0987999888",
+      "customerEmail": "a@gmail.com",
+      "customerAddress": "Ha Noi",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      }
+    },
+    {
+      "customerId": 2,
+      "customerCode": "KH-0002",
+      "customerName": "Nguyen Thi B",
+      "customerBirthday": "1997-10-20",
+      "customerGender": 0,
+      "customerIdCard": "097999000",
+      "customerPhone": "0987999444",
+      "customerEmail": "b@gmail.com",
+      "customerAddress": "Da Nang",
+      "customerType": {
+        "id": 1,
+        "name": "Member"
+      }
+    }
+  ],
+  "position": [
+    {
+      "id": 1,
+      "name": "Lễ tân"
+    },
+    {
+      "id": 2,
+      "name": "Phục vụ"
+    },
+    {
+      "id": 3,
+      "name": "Chuyên viên"
+    },
+    {
+      "id": 4,
+      "name": "Giám sát"
+    },
+    {
+      "id": 5,
+      "name": "Quản lý"
+    },
+    {
+      "id": 6,
+      "name": "Giám đốc"
+    }
+  ],
+  "division": [
+    {
+      "id": 1,
+      "name": "Sale – Marketing"
+    },
+    {
+      "id": 2,
+      "name": "Hành chính"
+    },
+    {
+      "id": 3,
+      "name": "Phục vụ"
+    },
+    {
+      "id": 4,
+      "name": "Quản lý"
+    }
+  ],
+  "educationDegree": [
+    {
+      "id": 1,
+      "name": "Trung cấp"
+    },
+    {
+      "id": 2,
+      "name": "Cao đẳng"
+    },
+    {
+      "id": 3,
+      "name": "Đại học"
+    },
+    {
+      "id": 4,
+      "name": "Sau đại học"
+    }
+  ],
+  "employee":[
+    {
+      "employeeId": 1,
+      "employeeName": "Nguyen Van C",
+      "employeeBirthday": "1996-05-23",
+      "employeeIdCard": "098000989",
+      "employeeSalary": 7000000,
+      "employeePhone": "0977666555",
+      "employeeEmail": "c@gmail.com",
+      "employeeAddress": "Huế",
+      "position": {
+        "id": 3,
+        "name": "Chuyên viên"
+      },
+      "division": {
+        "id": 2,
+        "name": "Hành chính"
+      },
+      "educationDegree": {
+        "id": 3,
+        "name": "Đại học"
+      }
+    },
+    {
+      "employeeId": 2,
+      "employeeName": "Nguyen Thi D",
+      "employeeBirthday": "1994-12-05",
+      "employeeIdCard": "098000000",
+      "employeeSalary": 9000000,
+      "employeePhone": "0977666222",
+      "employeeEmail": "d@gmail.com",
+      "employeeAddress": "Quảng Trị",
+      "position": {
+        "id": 6,
+        "name": "Giám đốc"
+      },
+      "division": {
+        "id": 4,
+        "name": "Quản lý"
+      },
+      "educationDegree": {
+        "id": 4,
+        "name": "Sau đại học"
+      }
+    }
+  ]
+}
