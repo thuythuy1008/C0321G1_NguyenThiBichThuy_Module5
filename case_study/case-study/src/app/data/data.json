@@ -51,6 +51,22 @@
         "id": 1,
         "name": "Member"
       }
+    },
+    {
+      "customerId": null,
+      "customerCode": "dssd",
+      "customerName": "sdfsd",
+      "customerBirthday": "2021-08-05",
+      "customerGender": "0",
+      "customerIdCard": "32432",
+      "customerPhone": "42342",
+      "customerEmail": "dfsfs",
+      "customerAddress": "sdfs",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "id": 9764
     }
   ],
   "position": [
@@ -362,6 +378,197 @@
           "name": "Vip"
         }
       }
+    }
+  ],
+  "attachService": [
+    {
+      "id": 1,
+      "name": "Massage",
+      "cost": 500000,
+      "unit": 1,
+      "status": "Mở"
+    },
+    {
+      "id": 2,
+      "name": "Karaoke",
+      "cost": 700000,
+      "unit": 1,
+      "status": "Mở"
+    },
+    {
+      "id": 3,
+      "name": "Thức ăn",
+      "cost": 500000,
+      "unit": 1,
+      "status": "Mở"
+    },
+    {
+      "id": 4,
+      "name": "Nước uống",
+      "cost": 200000,
+      "unit": 1,
+      "status": "Mở"
+    },
+    {
+      "id": 2,
+      "name": "Xe thuê",
+      "cost": 400000,
+      "unit": 1,
+      "status": "Mở"
+    }
+  ],
+  "contractDetail": [
+    {
+      "id": 1,
+      "contract": {
+        "contractId": 1,
+        "contractStartDate": "2021-09-09",
+        "contractEndDate": "2021-09-10",
+        "contractDeposit": 2000000,
+        "contractTotalMoney": 0,
+        "employee": {
+          "employeeId": 1,
+          "employeeName": "Nguyen Van C",
+          "employeeBirthday": "1996-05-23",
+          "employeeIdCard": "098000989",
+          "employeeSalary": 7000000,
+          "employeePhone": "0977666555",
+          "employeeEmail": "c@gmail.com",
+          "employeeAddress": "Huế",
+          "position": {
+            "id": 3,
+            "name": "Chuyên viên"
+          },
+          "division": {
+            "id": 2,
+            "name": "Hành chính"
+          },
+          "educationDegree": {
+            "id": 3,
+            "name": "Đại học"
+          }
+        },
+        "customer": {
+          "customerId": 2,
+          "customerCode": "KH-0002",
+          "customerName": "Nguyen Thi B",
+          "customerBirthday": "1997-10-20",
+          "customerGender": 0,
+          "customerIdCard": "097999000",
+          "customerPhone": "0987999444",
+          "customerEmail": "b@gmail.com",
+          "customerAddress": "Da Nang",
+          "customerType": {
+            "id": 1,
+            "name": "Member"
+          }
+        },
+        "service": {
+          "serviceId": 1,
+          "serviceCode": "DV-0001",
+          "serviceName": "Villa1",
+          "serviceArea": 40,
+          "serviceCost": 10000000,
+          "serviceMaxPeople": 12,
+          "standardRoom": "Rộng rãi",
+          "descriptionOtherConvenience": "Thoáng mát",
+          "poolArea": 30,
+          "numberOfFloors": 3,
+          "renType": {
+            "id": 2,
+            "name": "Tuần",
+            "cost": 1000000
+          },
+          "serviceType": {
+            "id": 2,
+            "name": "Thường"
+          }
+        }
+      },
+      "attachService": {
+        "id": 2,
+        "name": "Karaoke",
+        "cost": 700000,
+        "unit": 1,
+        "status": "Mở"
+      },
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "contract": {
+        "contractId": 2,
+        "contractStartDate": "2021-06-09",
+        "contractEndDate": "2021-06-15",
+        "contractDeposit": 1000000,
+        "contractTotalMoney": 0,
+        "employee": {
+          "employeeId": 2,
+          "employeeName": "Nguyen Thi D",
+          "employeeBirthday": "1994-12-05",
+          "employeeIdCard": "098000000",
+          "employeeSalary": 9000000,
+          "employeePhone": "0977666222",
+          "employeeEmail": "d@gmail.com",
+          "employeeAddress": "Quảng Trị",
+          "position": {
+            "id": 6,
+            "name": "Giám đốc"
+          },
+          "division": {
+            "id": 4,
+            "name": "Quản lý"
+          },
+          "educationDegree": {
+            "id": 4,
+            "name": "Sau đại học"
+          }
+        },
+        "customer": {
+          "customerId": 1,
+          "customerCode": "KH-0001",
+          "customerName": "Nguyen Van A",
+          "customerBirthday": "1997-08-10",
+          "customerGender": 1,
+          "customerIdCard": "097999999",
+          "customerPhone": "0987999888",
+          "customerEmail": "a@gmail.com",
+          "customerAddress": "Ha Noi",
+          "customerType": {
+            "id": 1,
+            "name": "Diamond"
+          }
+        },
+        "service": {
+          "serviceId": 2,
+          "serviceCode": "DV-0002",
+          "serviceName": "Villa2",
+          "serviceArea": 45,
+          "serviceCost": 12000000,
+          "serviceMaxPeople": 15,
+          "standardRoom": "Rộng rãi",
+          "descriptionOtherConvenience": "Thoáng mát",
+          "poolArea": 30,
+          "numberOfFloors": 3,
+          "renType": {
+            "id": 1,
+            "name": "Ngày",
+            "cost": 300000
+          },
+          "serviceType": {
+            "id": 1,
+            "name": "Vip"
+          }
+        }
+      },
+      "attachService": {
+        "id": 3,
+        "name": "Thức ăn",
+        "cost": 500000,
+        "unit": 1,
+        "status": "Mở"
+      },
+      "quantity": 1
     }
   ]
 }

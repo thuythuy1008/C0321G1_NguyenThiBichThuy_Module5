@@ -18,6 +18,8 @@ import { CreateContractComponent } from './contract/create-contract/create-contr
 import { ListContractDetailComponent } from './contract_detail/list-contract-detail/list-contract-detail.component';
 import { CreateContractDetailComponent } from './contract_detail/create-contract-detail/create-contract-detail.component';
 import {HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import {HttpClientModule} from "@angular/common/http";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,6 +9,8 @@ import {ListServiceComponent} from "./service/list-service/list-service.componen
 import {CreateServiceComponent} from "./service/create-service/create-service.component";
 import {ListContractComponent} from "./contract/list-contract/list-contract.component";
 import {CreateContractComponent} from "./contract/create-contract/create-contract.component";
+import {ListContractDetailComponent} from "./contract_detail/list-contract-detail/list-contract-detail.component";
+import {CreateContractDetailComponent} from "./contract_detail/create-contract-detail/create-contract-detail.component";
 
 
 const routes: Routes = [
@@ -21,6 +23,8 @@ const routes: Routes = [
   {path:'service-create', component:CreateServiceComponent},
   {path:'contract-list', component:ListContractComponent},
   {path:'contract-create', component:CreateContractComponent},
+  {path:'contract-detail-list', component:ListContractDetailComponent},
+  {path:'contract-detail-create', component:CreateContractDetailComponent},
 ];
 
 @NgModule({

@@ -10,6 +10,7 @@ import {Customer} from "../model/customer";
 })
 export class ListCustomerComponent implements OnInit {
   customers: Customer [] = [];
+  p: number;
 
   constructor(private customer: CustomerServiceService) {
   }
