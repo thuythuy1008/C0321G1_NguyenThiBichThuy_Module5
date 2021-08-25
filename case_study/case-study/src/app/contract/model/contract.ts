@@ -3,7 +3,7 @@ import {Customer} from "../../customer/model/customer";
 import {Service} from "../../service/model/service";
 
 export interface Contract {
-  contractId?: number;
+  id?: number;
   contractStartDate?: string;
   contractEndDate?: string;
   contractDeposit?: number;

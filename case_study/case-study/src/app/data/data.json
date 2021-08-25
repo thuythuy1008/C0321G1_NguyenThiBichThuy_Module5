@@ -23,7 +23,7 @@
   ],
   "customer": [
     {
-      "customerId": 1,
+      "id": 1,
       "customerCode": "KH-0001",
       "customerName": "Nguyen Van A",
       "customerBirthday": "1997-08-10",
@@ -38,7 +38,7 @@
       }
     },
     {
-      "customerId": 2,
+      "id": 2,
       "customerCode": "KH-0002",
       "customerName": "Nguyen Thi B",
       "customerBirthday": "1997-10-20",
@@ -53,7 +53,7 @@
       }
     },
     {
-      "customerId": null,
+      "id": 3,
       "customerCode": "dssd",
       "customerName": "sdfsd",
       "customerBirthday": "2021-08-05",
@@ -65,8 +65,37 @@
       "customerType": {
         "id": 1,
         "name": "Diamond"
+      }
+    },
+    {
+      "id": 4,
+      "customerCode": "KH-0004",
+      "customerName": "Thúy",
+      "customerBirthday": "2021-08-27",
+      "customerGender": "1",
+      "customerIdCard": "098999009",
+      "customerPhone": "0909998888",
+      "customerEmail": "thuy@gmail.com",
+      "customerAddress": "Quang Tri",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      }
+    },
+    {
+      "customerCode": "KH-0005",
+      "customerName": "Thúy Thúy",
+      "customerBirthday": "2021-08-26",
+      "customerGender": "1",
+      "customerIdCard": "999999999",
+      "customerPhone": "0999999999",
+      "customerEmail": "thuy@gmail.com",
+      "customerAddress": "Ha Noi",
+      "customerType": {
+        "id": 1,
+        "name": "Gold"
       },
-      "id": 9764
+      "id": 5
     }
   ],
   "position": [
@@ -133,7 +162,7 @@
   ],
   "employee": [
     {
-      "employeeId": 1,
+      "id": 1,
       "employeeName": "Nguyen Van C",
       "employeeBirthday": "1996-05-23",
       "employeeIdCard": "098000989",
@@ -155,7 +184,7 @@
       }
     },
     {
-      "employeeId": 2,
+      "id": 2,
       "employeeName": "Nguyen Thi D",
       "employeeBirthday": "1994-12-05",
       "employeeIdCard": "098000000",
@@ -206,7 +235,7 @@
   ],
   "service": [
     {
-      "serviceId": 1,
+      "id": 1,
       "serviceCode": "DV-0001",
       "serviceName": "Villa1",
       "serviceArea": 40,
@@ -227,7 +256,7 @@
       }
     },
     {
-      "serviceId": 2,
+      "id": 2,
       "serviceCode": "DV-0002",
       "serviceName": "Villa2",
       "serviceArea": 45,
@@ -250,13 +279,13 @@
   ],
   "contract": [
     {
-      "contractId": 1,
+      "id": 1,
       "contractStartDate": "2021-09-09",
       "contractEndDate": "2021-09-10",
       "contractDeposit": 2000000,
       "contractTotalMoney": 0,
       "employee": {
-        "employeeId": 1,
+        "id": 1,
         "employeeName": "Nguyen Van C",
         "employeeBirthday": "1996-05-23",
         "employeeIdCard": "098000989",
@@ -278,7 +307,7 @@
         }
       },
       "customer": {
-        "customerId": 2,
+        "id": 2,
         "customerCode": "KH-0002",
         "customerName": "Nguyen Thi B",
         "customerBirthday": "1997-10-20",
@@ -293,7 +322,7 @@
         }
       },
       "service": {
-        "serviceId": 1,
+        "id": 1,
         "serviceCode": "DV-0001",
         "serviceName": "Villa1",
         "serviceArea": 40,
@@ -315,13 +344,13 @@
       }
     },
     {
-      "contractId": 2,
+      "id": 2,
       "contractStartDate": "2021-06-09",
       "contractEndDate": "2021-06-15",
       "contractDeposit": 1000000,
       "contractTotalMoney": 0,
       "employee": {
-        "employeeId": 2,
+        "id": 2,
         "employeeName": "Nguyen Thi D",
         "employeeBirthday": "1994-12-05",
         "employeeIdCard": "098000000",
@@ -343,7 +372,7 @@
         }
       },
       "customer": {
-        "customerId": 1,
+        "id": 1,
         "customerCode": "KH-0001",
         "customerName": "Nguyen Van A",
         "customerBirthday": "1997-08-10",
@@ -358,7 +387,7 @@
         }
       },
       "service": {
-        "serviceId": 2,
+        "id": 2,
         "serviceCode": "DV-0002",
         "serviceName": "Villa2",
         "serviceArea": 45,
@@ -421,13 +450,13 @@
     {
       "id": 1,
       "contract": {
-        "contractId": 1,
+        "id": 1,
         "contractStartDate": "2021-09-09",
         "contractEndDate": "2021-09-10",
         "contractDeposit": 2000000,
         "contractTotalMoney": 0,
         "employee": {
-          "employeeId": 1,
+          "id": 1,
           "employeeName": "Nguyen Van C",
           "employeeBirthday": "1996-05-23",
           "employeeIdCard": "098000989",
@@ -449,7 +478,7 @@
           }
         },
         "customer": {
-          "customerId": 2,
+          "id": 2,
           "customerCode": "KH-0002",
           "customerName": "Nguyen Thi B",
           "customerBirthday": "1997-10-20",
@@ -464,7 +493,7 @@
           }
         },
         "service": {
-          "serviceId": 1,
+          "id": 1,
           "serviceCode": "DV-0001",
           "serviceName": "Villa1",
           "serviceArea": 40,
@@ -497,13 +526,13 @@
     {
       "id": 2,
       "contract": {
-        "contractId": 2,
+        "id": 2,
         "contractStartDate": "2021-06-09",
         "contractEndDate": "2021-06-15",
         "contractDeposit": 1000000,
         "contractTotalMoney": 0,
         "employee": {
-          "employeeId": 2,
+          "id": 2,
           "employeeName": "Nguyen Thi D",
           "employeeBirthday": "1994-12-05",
           "employeeIdCard": "098000000",
@@ -525,7 +554,7 @@
           }
         },
         "customer": {
-          "customerId": 1,
+          "id": 1,
           "customerCode": "KH-0001",
           "customerName": "Nguyen Van A",
           "customerBirthday": "1997-08-10",
@@ -540,7 +569,7 @@
           }
         },
         "service": {
-          "serviceId": 2,
+          "id": 2,
           "serviceCode": "DV-0002",
           "serviceName": "Villa2",
           "serviceArea": 45,

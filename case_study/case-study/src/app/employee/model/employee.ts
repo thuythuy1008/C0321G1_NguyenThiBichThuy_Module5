@@ -3,7 +3,7 @@ import {Division} from "./division";
 import {EducationDegree} from "./education-degree";
 
 export interface Employee {
-  employeeId?: number;
+  id?: number;
   employeeName?: string;
   employeeBirthday?: string;
   employeeIdCard?: string;

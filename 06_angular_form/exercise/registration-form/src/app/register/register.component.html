@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="alert alert-warning" role="alert" [hidden]="checkHidden">
+    Successful registration!!!
+  </div>
+  <div class="col-5">
+    <h3 style="color: red">Registration form</h3>
+    <form [formGroup]="registerForm">
+      <div class="form-group">
+        Email:
+        <input type="text" formControlName="email" class="form-control">
+      </div>
+      <p style="color: red" *ngIf="registerForm.controls.email.hasError('required') &&
+        registerForm.controls.email.dirty">
+        Please input email!
+      </p>
+      <p style="color: red" *ngIf="registerForm.controls.email.hasError('email') &&
+        registerForm.controls.email.dirty">
+        Please input right format!
+      </p>
+
+      <div formGroupName="pwGroup">
+        <div class="form-group">
+          Password:
+          <input type="password" formControlName="password" class="form-control">
+        </div>
+        <p style="color: red" *ngIf="registerForm.controls.pwGroup.get('password').hasError('required') &&
+          registerForm.controls.pwGroup.dirty">
+          Please input password!
+        </p>
+        <p style="color: red" *ngIf="registerForm.controls.pwGroup.get('password').hasError('minlength') &&
+          registerForm.controls.pwGroup.dirty">
+          Please input right format!
+        </p>
+
+        <div class="form-group">
+          Confirm password:
+          <input type="password" formControlName="confirmPassword" class="form-control">
+        </div>
+        <p style="color: red" *ngIf="registerForm.controls.pwGroup.get('confirmPassword').hasError('required') &&
+          registerForm.controls.pwGroup.dirty">
+          Please input confirmPassword!
+        </p>
+        <p style="color: red" *ngIf="registerForm.controls.pwGroup.get('confirmPassword').hasError('minlength') &&
+          registerForm.controls.pwGroup.dirty">
+          Please input right format!
+        </p>
+        <p style="color: red" *ngIf="registerForm.controls.pwGroup.hasError('invalid')">
+          Please input the same passwork!
+        </p>
+      </div>
+
+      <div class="form-group">
+        Country:
+        <select formControlName="country" class="form-control">
+          <option value="vn">Việt Nam</option>
+          <option value="nb">Nhật Bản</option>
+          <option value="hq">Hàn Quốc</option>
+        </select>
+      </div>
+      <p style="color: red" *ngIf="registerForm.controls.country.hasError('required') &&
+         registerForm.controls.country.dirty">
+        Please input country!
+      </p>
+
+      <div class="form-group">
+        Age:
+        <input type="number" formControlName="age" class="form-control">
+      </div>
+      <p style="color: red" *ngIf="registerForm.controls.age.hasError('required') &&
+        registerForm.controls.age.dirty">
+        Please input age!
+      </p>
+      <p style="color: red" *ngIf="registerForm.controls.age.hasError('min') &&
+        registerForm.controls.age.dirty">
+        Please input right format!
+      </p>
+
+      <div class="form-group">
+        Gender:
+        <input formControlName="gender" type="radio" value="0"/>Male
+        <input formControlName="gender" type="radio" value="1"/>Female
+      </div>
+      <p style="color: red" *ngIf="registerForm.controls.gender.hasError('required') &&
+        registerForm.controls.gender.dirty">
+        Please input gender!
+      </p>
+
+      <div class="form-group">
+        Phone:
+        <input type="text" formControlName="phone" class="form-control">
+      </div>
+      <p style="color: red" *ngIf="registerForm.controls.phone.hasError('required') &&
+        registerForm.controls.phone.dirty">
+        Please input phone!
+      </p>
+      <p style="color: red" *ngIf="registerForm.controls.phone.hasError('pattern') &&
+        registerForm.controls.phone.dirty">
+        Please input right format!
+      </p>
+
+      <button type="submit" class="btn btn-primary mt-2" (click)="submitForm()">Submit</button>
+    </form>
+  </div>
+</div>

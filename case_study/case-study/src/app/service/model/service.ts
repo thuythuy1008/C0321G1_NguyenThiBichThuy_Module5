@@ -2,7 +2,7 @@ import {RenType} from "./ren-type";
 import {ServiceType} from "./service-type";
 
 export interface Service {
-  serviceId?: number;
+  id?: number;
   serviceCode?: string;
   serviceName?: string;
   serviceArea?: number;

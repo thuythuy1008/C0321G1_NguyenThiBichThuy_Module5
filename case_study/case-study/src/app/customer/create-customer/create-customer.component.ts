@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CustomerType} from "../model/customer-type";
 import {FormControl, FormGroup} from "@angular/forms";
 import {CustomerServiceService} from "../service/customer-service.service";
-import {Route} from "@angular/router";
+import {Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-customer',
@@ -13,7 +13,6 @@ export class CreateCustomerComponent implements OnInit {
 
   customerTypes: CustomerType[] = [];
   createForm: FormGroup = new FormGroup({
-    customerId: new FormControl(),
     customerCode: new FormControl(),
     customerName: new FormControl(),
     customerBirthday: new FormControl(),
@@ -25,11 +24,9 @@ export class CreateCustomerComponent implements OnInit {
     customerType: new FormControl()
   });
 
-  constructor(private customerService: CustomerServiceService) {
+  constructor(private customerService: CustomerServiceService, public router: Router) {
+
   }
-  // constructor(private customerService: CustomerServiceService, private router: Route) {
-  //
-  // }
 
   ngOnInit(): void {
     this.getData();
@@ -43,9 +40,10 @@ export class CreateCustomerComponent implements OnInit {
 
   submitForm() {
     const customer = this.createForm.value;
-    customer.id = Math.floor(Math.random() * 10000);
     this.customerService.saveCustomer(customer).subscribe(()=> {
-
+      // @ts-ignore
+      this.router.navigateByUrl('/customer-list');
     })
+
   }
 }
