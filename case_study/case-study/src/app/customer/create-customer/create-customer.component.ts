@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CustomerType} from "../model/customer-type";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CustomerServiceService} from "../service/customer-service.service";
 import {Route, Router} from "@angular/router";
 
@@ -16,7 +16,7 @@ export class CreateCustomerComponent implements OnInit {
 
   constructor(private customerService: CustomerServiceService, public router: Router) {
     this.createForm = new FormGroup({
-      customerCode: new FormControl(),
+      customerCode: new FormControl('', Validators.pattern('')),
       customerName: new FormControl(),
       customerBirthday: new FormControl(),
       customerGender: new FormControl(),
@@ -41,7 +41,6 @@ export class CreateCustomerComponent implements OnInit {
   submitForm() {
     const customer = this.createForm.value;
     this.customerService.saveCustomer(customer).subscribe(() => {
-      // @ts-ignore
       this.router.navigateByUrl('/customer-list');
     })
 
