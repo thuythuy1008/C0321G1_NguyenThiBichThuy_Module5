@@ -8,7 +8,7 @@ import {CustomerType} from "../model/customer-type";
   providedIn: 'root'
 })
 export class CustomerServiceService {
-  public API_CUSTOMER ='http://localhost:3000/customer';
+  // public API_CUSTOMER ='http://localhost:3000/customer';
 
   constructor(private http: HttpClient) {
   }
@@ -18,7 +18,7 @@ export class CustomerServiceService {
   }
 
   saveCustomer(customer): Observable<Customer> {
-    return this.http.post<Customer>(this.API_CUSTOMER, customer);
+    return this.http.post<Customer>('http://localhost:3000/customer', customer);
   }
 
   getAllCustomerType(): Observable<CustomerType[]> {

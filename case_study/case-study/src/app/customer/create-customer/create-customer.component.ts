@@ -12,20 +12,20 @@ import {Route, Router} from "@angular/router";
 export class CreateCustomerComponent implements OnInit {
 
   customerTypes: CustomerType[] = [];
-  createForm: FormGroup = new FormGroup({
-    customerCode: new FormControl(),
-    customerName: new FormControl(),
-    customerBirthday: new FormControl(),
-    customerGender: new FormControl(),
-    customerIdCard: new FormControl(),
-    customerPhone: new FormControl(),
-    customerEmail: new FormControl(),
-    customerAddress: new FormControl(),
-    customerType: new FormControl()
-  });
+  createForm: FormGroup;
 
   constructor(private customerService: CustomerServiceService, public router: Router) {
-
+    this.createForm = new FormGroup({
+      customerCode: new FormControl(),
+      customerName: new FormControl(),
+      customerBirthday: new FormControl(),
+      customerGender: new FormControl(),
+      customerIdCard: new FormControl(),
+      customerPhone: new FormControl(),
+      customerEmail: new FormControl(),
+      customerAddress: new FormControl(),
+      customerType: new FormControl()
+    })
   }
 
   ngOnInit(): void {
@@ -40,7 +40,7 @@ export class CreateCustomerComponent implements OnInit {
 
   submitForm() {
     const customer = this.createForm.value;
-    this.customerService.saveCustomer(customer).subscribe(()=> {
+    this.customerService.saveCustomer(customer).subscribe(() => {
       // @ts-ignore
       this.router.navigateByUrl('/customer-list');
     })

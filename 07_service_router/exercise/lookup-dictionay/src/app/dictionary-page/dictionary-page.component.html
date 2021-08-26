@@ -1,0 +1,15 @@
+<h2 style="color:red;">Lookup dictionary</h2>
+<table border="1">
+  <tr>
+    <th>No</th>
+    <th>Word</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let w of wordList;index as i">
+    <td>{{i + 1}}</td>
+    <td>{{w.word}}</td>
+    <td>
+      <a [routerLink]="['/student-detail', w.word]">Detail</a>
+    </td>
+  </tr>
+</table>
