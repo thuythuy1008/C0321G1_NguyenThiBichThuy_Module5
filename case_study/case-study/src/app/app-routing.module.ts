@@ -11,12 +11,15 @@ import {ListContractComponent} from "./contract/list-contract/list-contract.comp
 import {CreateContractComponent} from "./contract/create-contract/create-contract.component";
 import {ListContractDetailComponent} from "./contract_detail/list-contract-detail/list-contract-detail.component";
 import {CreateContractDetailComponent} from "./contract_detail/create-contract-detail/create-contract-detail.component";
+import {EditCustomerComponent} from "./customer/edit-customer/edit-customer.component";
 
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
   {path:'customer-list', component:ListCustomerComponent},
   {path:'customer-create', component:CreateCustomerComponent},
+  {path:'customer-edit', component:EditCustomerComponent},
+  // {path:'customer-delete', component:DeleteCustomerComponent},
   {path:'employee-list', component:ListEmployeeComponent},
   {path:'employee-create', component:CreateEmployeeComponent},
   {path:'service-list', component:ListServiceComponent},

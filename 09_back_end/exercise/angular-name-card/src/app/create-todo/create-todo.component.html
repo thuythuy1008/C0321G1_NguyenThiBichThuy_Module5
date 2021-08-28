@@ -1,0 +1,7 @@
+<div style="margin:0 20%">
+  <form [formGroup]="todoForm" novalidate>
+    <label style="color: darkviolet">Content</label>
+    <input class="form-control" formControlName="content">
+    <button class="btn btn-warning mt-3" (click)="create()">Create</button>
+  </form>
+</div>

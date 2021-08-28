@@ -1,0 +1,34 @@
+<h2 class="text-center">
+  Todo App
+</h2>
+<button [routerLink]="['/create']" type="button" class="btn btn-primary mx-5">Create</button>
+<div class="col-md-8 offset-md-2">
+  <ul>
+    <li (click)="toggleTodo(i)"
+        *ngFor="let todo of todos; index as i" [class.complete]="todo.complete">
+      {{todo.content}}
+    </li>
+  </ul>
+</div>
+<table class="table table-striped text-center">
+  <thead>
+  <th>No</th>
+  <th>Content</th>
+  <th>Complete</th>
+  <th>Edit</th>
+  <th>Delete</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of todos; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{item.content}}</td>
+    <td>{{item.complete}}</td>
+    <td>
+      <button [routerLink]="['/edit',item.id]" type="button" class="btn btn-warning">Edit</button>
+    </td>
+    <td>
+      <button (click)="delete(item.id)" type="button" class="btn btn-success">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,131 @@
+<h1 class="text-center" style="color:crimson">Edit Customer</h1>
+<a class="btn btn-primary mb-2 ml-4" [routerLink]="'/customer-list'" role="button">Customer list</a>
+
+<form [formGroup]="editForm" (ngSubmit)="submitForm()">
+  <div class="container">
+    <div class="form-group">
+      <label>Customer Code:</label>
+      <input formControlName="customerCode" type="text" class="form-control" >
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.customerCode.hasError('required') &&
+        editForm.controls.customerCode.dirty">
+      Please input customer code!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.customerCode.hasError('pattern') &&
+        editForm.controls.customerCode.dirty">
+      Please re-enter in the format : KH-XXXX (X: 0-9)!
+    </p>
+
+    <div class="form-group">
+      <label>Customer Name:</label>
+      <input formControlName="customerName" type="text" class="form-control">
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.customerName.hasError('required') &&
+        editForm.controls.customerName.dirty">
+      Please input customer name!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.customerName.hasError('pattern') &&
+        editForm.controls.customerName.dirty">
+      Please capitalize the first letter of each word!
+    </p>
+
+    <div class="form-group">
+      <label>Customer Birthday:</label>
+      <input formControlName="customerBirthday" class="form-control" type="date" >
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.customerBirthday.hasError('required') &&
+        editForm.controls.customerBirthday.dirty">
+      Please input customer birthday!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.customerBirthday.hasError('invalid') &&
+        editForm.controls.customerBirthday.dirty">
+      Please input >= 18!
+    </p>
+
+    <div class="form-group">
+      <label>Customer Gender:</label>
+      <select formControlName="customerGender" class="form-control" >
+        <option value="0" >Male</option>
+        <option value="1" >Female</option>
+      </select>
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.customerGender.hasError('required') &&
+        editForm.controls.customerGender.dirty">
+      Please input customer gender!
+    </p>
+
+    <div class="form-group">
+      <label>Customer Id Card:</label>
+      <input formControlName="customerIdCard" type="text" class="form-control">
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.customerIdCard.hasError('required') &&
+        editForm.controls.customerIdCard.dirty">
+      Please input customer id card!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.customerIdCard.hasError('pattern') &&
+        editForm.controls.customerIdCard.dirty">
+      Please re-enter in the format: XXXXXXXXX or XXXXXXXXXXXX (X: 0-9)!
+    </p>
+
+    <div class="form-group">
+      <label>Customer Phone:</label>
+      <input formControlName="customerPhone" type="text" class="form-control">
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.customerPhone.hasError('required') &&
+        editForm.controls.customerPhone.dirty">
+      Please input customer phone!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.customerPhone.hasError('pattern') &&
+        editForm.controls.customerPhone.dirty">
+      Please re-enter in the format: 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or (84)+91xxxxxxx (x: 0-9)!
+    </p>
+
+    <div class="form-group">
+      <label>Customer Email:</label>
+      <div class="input-group mb-3">
+        <input formControlName="customerEmail" type="text" class="form-control" aria-label="Recipient's username"
+               aria-describedby="basic-addon2">
+        <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+      </div>
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.customerEmail.hasError('required') &&
+        editForm.controls.customerEmail.dirty">
+      Please input email!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.customerEmail.hasError('email') &&
+        editForm.controls.customerEmail.dirty">
+      Please input right format!
+    </p>
+
+    <div class="form-group">
+      <label>Customer Address:</label>
+      <input formControlName="customerAddress" type="text" class="form-control" >
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.customerAddress.hasError('required') &&
+        editForm.controls.customerAddress.dirty">
+      Please input customer address!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.customerAddress.hasError('pattern') &&
+        editForm.controls.customerAddress.dirty">
+      Please capitalize the first letter of each word!
+    </p>
+
+    <div class="form-group">
+      <label>Customer Type:</label>
+      <select class="form-control" name="customerType" formControlName="customerType">
+        <option *ngFor=" let ct of customerTypes" [ngValue]="ct"> {{ct.name}}</option>
+      </select>
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.customerType.hasError('required') &&
+        editForm.controls.customerType.dirty">
+      Please input customer type!
+    </p>
+
+    <div>
+      <input class="btn btn-warning" type="submit" value="Edit customer" [disabled]="editForm.invalid">
+    </div>
+  </div>
+</form>
+
+
+

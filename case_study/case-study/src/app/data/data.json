@@ -96,6 +96,33 @@
         "name": "Gold"
       },
       "id": 5
+    },
+    {
+      "customerCode": "KH-0003",
+      "customerName": "Thúy",
+      "customerBirthday": "2003-01-28",
+      "customerGender": "1",
+      "customerIdCard": "000000000",
+      "customerPhone": "0900000000",
+      "customerEmail": "thuy@gmail.com",
+      "customerAddress": "Hà Nội",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "id": 6
+    },
+    {
+      "customerCode": "KH-0002",
+      "customerName": "Thúy Như",
+      "customerBirthday": "2003-01-28",
+      "customerGender": "",
+      "customerIdCard": "",
+      "customerPhone": "",
+      "customerEmail": "",
+      "customerAddress": "",
+      "customerType": "",
+      "id": 7
     }
   ],
   "position": [

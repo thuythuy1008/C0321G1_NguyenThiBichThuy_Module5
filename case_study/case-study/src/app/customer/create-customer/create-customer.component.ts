@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {CustomerType} from "../model/customer-type";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {CustomerServiceService} from "../service/customer-service.service";
 import {Route, Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-create-customer',
@@ -14,17 +15,33 @@ export class CreateCustomerComponent implements OnInit {
   customerTypes: CustomerType[] = [];
   createForm: FormGroup;
 
-  constructor(private customerService: CustomerServiceService, public router: Router) {
+  constructor(private customerService: CustomerServiceService, private router: Router, private toast: ToastrService) {
     this.createForm = new FormGroup({
-      customerCode: new FormControl('', Validators.pattern('')),
-      customerName: new FormControl(),
-      customerBirthday: new FormControl(),
-      customerGender: new FormControl(),
-      customerIdCard: new FormControl(),
-      customerPhone: new FormControl(),
-      customerEmail: new FormControl(),
-      customerAddress: new FormControl(),
-      customerType: new FormControl()
+      customerCode: new FormControl('',
+        [Validators.required, Validators.pattern('^(KH)-[0-9]{4}$')]),
+      customerName: new FormControl('',
+        [Validators.required,
+          Validators.pattern('[A-ZẮẰẲẴẶĂẤẦẨẪẬÂÁÀÃẢẠĐẾỀỂỄỆÊÉÈẺẼẸÍÌỈĨỊỐỒỔỖỘÔỚỜỞỠỢƠÓÒÕỎỌỨỪỬỮỰƯÚÙỦŨỤÝỲỶỸỴ]' +
+            '[a-zàáâãèéêìíòóôõùúăđĩũơưăạảấầẩẫậắằẳẵặẹẻẽềềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]+' +
+            '(([ ][A-ZẮẰẲẴẶĂẤẦẨẪẬÂÁÀÃẢẠĐẾỀỂỄỆÊÉÈẺẼẸÍÌỈĨỊỐỒỔỖỘÔỚỜỞỠỢƠÓÒÕỎỌỨỪỬỮỰƯÚÙỦŨỤÝỲỶỸỴ]' +
+            '[a-zàáâãèéêìíòóôõùúăđĩũơưăạảấầẩẫậắằẳẵặẹẻẽềềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]+)' +
+            '|([ ][A-ZẮẰẲẴẶĂẤẦẨẪẬÂÁÀÃẢẠĐẾỀỂỄỆÊÉÈẺẼẸÍÌỈĨỊỐỒỔỖỘÔỚỜỞỠỢƠÓÒÕỎỌỨỪỬỮỰƯÚÙỦŨỤÝỲỶỸỴ]))+')]),
+      customerBirthday: new FormControl('', [Validators.required, this.check]),
+      customerGender: new FormControl('', Validators.required),
+      customerIdCard: new FormControl('',
+        [Validators.required, Validators.pattern('^([0-9]{9}|[0-9]{12})$')]),
+      customerPhone: new FormControl('',
+        [Validators.required, Validators.pattern('^(090|091|\\(84\\)\\+90|\\(84\\)\\+91)[0-9]{7}$')]),
+      customerEmail: new FormControl('',
+        [Validators.required, Validators.email]),
+      customerAddress: new FormControl('',
+        [Validators.required,
+          Validators.pattern('[A-ZẮẰẲẴẶĂẤẦẨẪẬÂÁÀÃẢẠĐẾỀỂỄỆÊÉÈẺẼẸÍÌỈĨỊỐỒỔỖỘÔỚỜỞỠỢƠÓÒÕỎỌỨỪỬỮỰƯÚÙỦŨỤÝỲỶỸỴ]' +
+            '[a-zàáâãèéêìíòóôõùúăđĩũơưăạảấầẩẫậắằẳẵặẹẻẽềềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]+' +
+            '(([ ][A-ZẮẰẲẴẶĂẤẦẨẪẬÂÁÀÃẢẠĐẾỀỂỄỆÊÉÈẺẼẸÍÌỈĨỊỐỒỔỖỘÔỚỜỞỠỢƠÓÒÕỎỌỨỪỬỮỰƯÚÙỦŨỤÝỲỶỸỴ]' +
+            '[a-zàáâãèéêìíòóôõùúăđĩũơưăạảấầẩẫậắằẳẵặẹẻẽềềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]+)' +
+            '|([ ][A-ZẮẰẲẴẶĂẤẦẨẪẬÂÁÀÃẢẠĐẾỀỂỄỆÊÉÈẺẼẸÍÌỈĨỊỐỒỔỖỘÔỚỜỞỠỢƠÓÒÕỎỌỨỪỬỮỰƯÚÙỦŨỤÝỲỶỸỴ]))+')]),
+      customerType: new FormControl('', Validators.required)
     })
   }
 
@@ -42,7 +59,18 @@ export class CreateCustomerComponent implements OnInit {
     const customer = this.createForm.value;
     this.customerService.saveCustomer(customer).subscribe(() => {
       this.router.navigateByUrl('/customer-list');
+      this.alert();
     })
+  }
 
+  check(birthDay: AbstractControl): any {
+    const confim = birthDay.value;
+    const inputYear = Number(confim.substr(0, 4));
+    const currentYear = new Date().getFullYear();
+    return currentYear - inputYear >= 18 ? null : {invalid: true};
+  }
+
+  alert() {
+    this.toast.success('Create successfuly!!!', 'title');
   }
 }

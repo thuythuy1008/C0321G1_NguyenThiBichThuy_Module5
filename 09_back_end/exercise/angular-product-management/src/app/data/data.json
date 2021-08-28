@@ -1,0 +1,34 @@
+{
+  "product": [
+    {
+      "id": 2,
+      "name": "IPhone 11",
+      "price": 13000000,
+      "description": "Like new"
+    },
+    {
+      "id": 3,
+      "name": "IPhone X",
+      "price": 10000000,
+      "description": "97%"
+    },
+    {
+      "id": 4,
+      "name": "Oppo",
+      "price": 12000000,
+      "description": "New"
+    },
+    {
+      "id": 765,
+      "name": "jhgjhg",
+      "price": 111111111,
+      "description": "hgfjgf"
+    },
+    {
+      "id": 434,
+      "name": "dfdgdddddđ",
+      "price": 22,
+      "description": "eeeee"
+    }
+  ]
+}
