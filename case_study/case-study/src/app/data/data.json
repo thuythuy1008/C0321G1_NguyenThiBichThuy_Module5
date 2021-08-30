@@ -53,23 +53,8 @@
       }
     },
     {
-      "id": 3,
-      "customerCode": "dssd",
-      "customerName": "sdfsd",
-      "customerBirthday": "2021-08-05",
-      "customerGender": "0",
-      "customerIdCard": "32432",
-      "customerPhone": "42342",
-      "customerEmail": "dfsfs",
-      "customerAddress": "sdfs",
-      "customerType": {
-        "id": 1,
-        "name": "Diamond"
-      }
-    },
-    {
       "id": 4,
-      "customerCode": "KH-0004",
+      "customerCode": "KH-0003",
       "customerName": "Thúy",
       "customerBirthday": "2021-08-27",
       "customerGender": "1",
@@ -79,50 +64,23 @@
       "customerAddress": "Quang Tri",
       "customerType": {
         "id": 1,
-        "name": "Diamond"
+        "name": "Gold"
       }
     },
     {
       "customerCode": "KH-0005",
-      "customerName": "Thúy Thúy",
-      "customerBirthday": "2021-08-26",
+      "customerName": "Như Ngọc",
+      "customerBirthday": "2003-01-29",
       "customerGender": "1",
-      "customerIdCard": "999999999",
-      "customerPhone": "0999999999",
-      "customerEmail": "thuy@gmail.com",
-      "customerAddress": "Ha Noi",
-      "customerType": {
-        "id": 1,
-        "name": "Gold"
-      },
-      "id": 5
-    },
-    {
-      "customerCode": "KH-0003",
-      "customerName": "Thúy",
-      "customerBirthday": "2003-01-28",
-      "customerGender": "1",
-      "customerIdCard": "000000000",
-      "customerPhone": "0900000000",
-      "customerEmail": "thuy@gmail.com",
+      "customerIdCard": "009990000",
+      "customerPhone": "0900888777",
+      "customerEmail": "ngoc@gmail.com",
       "customerAddress": "Hà Nội",
       "customerType": {
         "id": 1,
-        "name": "Diamond"
+        "name": "Silver"
       },
       "id": 6
-    },
-    {
-      "customerCode": "KH-0002",
-      "customerName": "Thúy Như",
-      "customerBirthday": "2003-01-28",
-      "customerGender": "",
-      "customerIdCard": "",
-      "customerPhone": "",
-      "customerEmail": "",
-      "customerAddress": "",
-      "customerType": "",
-      "id": 7
     }
   ],
   "position": [
@@ -193,10 +151,10 @@
       "employeeName": "Nguyen Van C",
       "employeeBirthday": "1996-05-23",
       "employeeIdCard": "098000989",
-      "employeeSalary": 7000000,
-      "employeePhone": "0977666555",
+      "employeeSalary": "5000000",
+      "employeePhone": "0907666555",
       "employeeEmail": "c@gmail.com",
-      "employeeAddress": "Huế",
+      "employeeAddress": "Quảng Bình",
       "position": {
         "id": 3,
         "name": "Chuyên viên"
@@ -216,7 +174,7 @@
       "employeeBirthday": "1994-12-05",
       "employeeIdCard": "098000000",
       "employeeSalary": 9000000,
-      "employeePhone": "0977666222",
+      "employeePhone": "0907666222",
       "employeeEmail": "d@gmail.com",
       "employeeAddress": "Quảng Trị",
       "position": {
@@ -231,6 +189,28 @@
         "id": 4,
         "name": "Sau đại học"
       }
+    },
+    {
+      "employeeName": "Nguyễn A",
+      "employeeBirthday": "2003-06-10",
+      "employeeIdCard": "000999888",
+      "employeeSalary": "7000000",
+      "employeePhone": "0909998887",
+      "employeeEmail": "a@gamil.com",
+      "employeeAddress": "Ninh Bình",
+      "position": {
+        "id": 3,
+        "name": "Chuyên viên"
+      },
+      "division": {
+        "id": 1,
+        "name": "Sale – Marketing"
+      },
+      "educationDegree": {
+        "id": 2,
+        "name": "Cao đẳng"
+      },
+      "id": 3
     }
   ],
   "renType": [
@@ -268,18 +248,18 @@
       "serviceArea": 40,
       "serviceCost": 10000000,
       "serviceMaxPeople": 12,
-      "standardRoom": "Rộng rãi",
-      "descriptionOtherConvenience": "Thoáng mát",
+      "standardRoom": "Rộng Rãi",
+      "descriptionOtherConvenience": "Thoáng Mát",
       "poolArea": 30,
       "numberOfFloors": 3,
       "renType": {
-        "id": 2,
-        "name": "Tuần",
-        "cost": 1000000
+        "id": 1,
+        "name": "Ngày",
+        "cost": 300000
       },
       "serviceType": {
-        "id": 2,
-        "name": "Thường"
+        "id": 1,
+        "name": "Vip"
       }
     },
     {
@@ -625,6 +605,82 @@
         "status": "Mở"
       },
       "quantity": 1
+    },
+    {
+      "contract": {
+        "id": 2,
+        "contractStartDate": "2021-06-09",
+        "contractEndDate": "2021-06-15",
+        "contractDeposit": 1000000,
+        "contractTotalMoney": 0,
+        "employee": {
+          "id": 2,
+          "employeeName": "Nguyen Thi D",
+          "employeeBirthday": "1994-12-05",
+          "employeeIdCard": "098000000",
+          "employeeSalary": 9000000,
+          "employeePhone": "0977666222",
+          "employeeEmail": "d@gmail.com",
+          "employeeAddress": "Quảng Trị",
+          "position": {
+            "id": 6,
+            "name": "Giám đốc"
+          },
+          "division": {
+            "id": 4,
+            "name": "Quản lý"
+          },
+          "educationDegree": {
+            "id": 4,
+            "name": "Sau đại học"
+          }
+        },
+        "customer": {
+          "id": 1,
+          "customerCode": "KH-0001",
+          "customerName": "Nguyen Van A",
+          "customerBirthday": "1997-08-10",
+          "customerGender": 1,
+          "customerIdCard": "097999999",
+          "customerPhone": "0987999888",
+          "customerEmail": "a@gmail.com",
+          "customerAddress": "Ha Noi",
+          "customerType": {
+            "id": 1,
+            "name": "Diamond"
+          }
+        },
+        "service": {
+          "id": 2,
+          "serviceCode": "DV-0002",
+          "serviceName": "Villa2",
+          "serviceArea": 45,
+          "serviceCost": 12000000,
+          "serviceMaxPeople": 15,
+          "standardRoom": "Rộng rãi",
+          "descriptionOtherConvenience": "Thoáng mát",
+          "poolArea": 30,
+          "numberOfFloors": 3,
+          "renType": {
+            "id": 1,
+            "name": "Ngày",
+            "cost": 300000
+          },
+          "serviceType": {
+            "id": 1,
+            "name": "Vip"
+          }
+        }
+      },
+      "attachService": {
+        "id": 2,
+        "name": "Karaoke",
+        "cost": 700000,
+        "unit": 1,
+        "status": "Mở"
+      },
+      "quantity": "3",
+      "id": 3
     }
   ]
 }

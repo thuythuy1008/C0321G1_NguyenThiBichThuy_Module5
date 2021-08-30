@@ -1,0 +1,90 @@
+<h1 class="text-center" style="color:crimson">Edit Contract</h1>
+<a class="btn btn-primary mb-2 ml-4" [routerLink]="'/contract-list'" role="button">Contract list</a>
+
+<form [formGroup]="editForm" (ngSubmit)="submitForm()">
+  <div class="container">
+    <div formGroupName="dateGroup">
+      <div class="form-group">
+        <label>Contract Start Date:</label>
+        <input formControlName="contractStartDate" type="date" class="form-control">
+      </div>
+      <p style="color: red" *ngIf="editForm.controls.dateGroup.get('contractStartDate').hasError('required') &&
+        editForm.controls.dateGroup.dirty">
+        Please input Start Date!
+      </p>
+      <p style="color: red" *ngIf="editForm.controls.dateGroup.get('contractStartDate').hasError('invalid') &&
+        editForm.controls.dateGroup.dirty">
+        Please do not select a date in the past!
+      </p>
+
+      <div class="form-group">
+        <label>Contract End Date:</label>
+        <input formControlName="contractEndDate" type="date" class="form-control" >
+      </div>
+      <p style="color: red" *ngIf="editForm.controls.dateGroup.get('contractEndDate').hasError('required') &&
+        editForm.controls.dateGroup.dirty">
+        Please input Start Date!
+      </p>
+      <p style="color: red" *ngIf="editForm.controls.dateGroup.hasError('invalidCheckEndDay') &&
+        editForm.controls.dateGroup.dirty">
+        The end date must be greater than the start date!
+      </p>
+    </div>
+
+    <div formGroupName="moneyGroup">
+      <div class="form-group">
+        <label>Contract Deposit:</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">$</span>
+          <input formControlName="contractDeposit" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" >
+          <span class="input-group-text">VND</span>
+        </div>
+      </div>
+      <p style="color: red" *ngIf="editForm.controls.moneyGroup.get('contractDeposit').hasError('required') &&
+        editForm.controls.moneyGroup.dirty">
+        Please input Contract Deposit!
+      </p>
+      <p style="color: red" *ngIf="editForm.controls.moneyGroup.get('contractDeposit').hasError('min') &&
+        editForm.controls.moneyGroup.dirty">
+        Please enter a number greater than 0!
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label>Employee:</label>
+      <select class="form-control" name="employee" formControlName="employee" [compareWith]="compareFn">
+        <option *ngFor=" let e of employees" [ngValue]="e"> {{e.employeeName}}</option>
+      </select>
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.employee.hasError('required') &&
+        editForm.controls.employee.dirty">
+      Please input employee!
+    </p>
+
+    <div class="form-group">
+      <label>Customer:</label>
+      <select class="form-control" name="customer" formControlName="customer" [compareWith]="compareFn">
+        <option *ngFor=" let c of customers" [ngValue]="c"> {{c.customerName}}</option>
+      </select>
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.customer.hasError('required') &&
+        editForm.controls.customer.dirty">
+      Please input customer!
+    </p>
+
+    <div class="form-group">
+      <label>Service:</label>
+      <select class="form-control" name="service" formControlName="service" [compareWith]="compareFn">
+        <option *ngFor=" let s of services" [ngValue]="s"> {{s.serviceName}}</option>
+      </select>
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.service.hasError('required') &&
+        editForm.controls.service.dirty">
+      Please input service!
+    </p>
+
+    <div>
+      <input class="btn btn-warning" type="submit" value="Create contract" >
+    </div>
+  </div>
+</form>

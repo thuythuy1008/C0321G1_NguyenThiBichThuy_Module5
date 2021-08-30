@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Todo} from '../todo';
 import {FormControl} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
 import {Router} from '@angular/router';
 import {TodoService} from "../service/todo.service";
 import {DeleteTodoComponent} from "../delete-todo/delete-todo.component";
+import {Todo} from "../model/todo";
 
 @Component({
   selector: 'app-todo',

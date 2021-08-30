@@ -18,10 +18,21 @@ import {CreateContractComponent} from './contract/create-contract/create-contrac
 import {ListContractDetailComponent} from './contract_detail/list-contract-detail/list-contract-detail.component';
 import {CreateContractDetailComponent} from './contract_detail/create-contract-detail/create-contract-detail.component';
 import {HttpClientModule} from "@angular/common/http";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxPaginationModule} from "ngx-pagination";
 import {ToastrModule} from 'ngx-toastr';
 import { EditCustomerComponent } from './customer/edit-customer/edit-customer.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DeleteCustomerComponent } from './customer/delete-customer/delete-customer.component';
+import {DeleteEmployeeComponent} from "./employee/delete-employee/delete-employee.component";
+import {EditEmployeeComponent} from "./employee/edit-employee/edit-employee.component";
+import { EditServiceComponent } from './service/edit-service/edit-service.component';
+import { DeleteServiceComponent } from './service/delete-service/delete-service.component';
+import { EditContractComponent } from './contract/edit-contract/edit-contract.component';
+import { DeleteContractComponent } from './contract/delete-contract/delete-contract.component';
+import { EditContractDetailComponent } from './contract_detail/edit-contract-detail/edit-contract-detail.component';
+import { DeleteContractDetailComponent } from './contract_detail/delete-contract-detail/delete-contract-detail.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +51,16 @@ import { EditCustomerComponent } from './customer/edit-customer/edit-customer.co
     CreateContractComponent,
     ListContractDetailComponent,
     CreateContractDetailComponent,
-    EditCustomerComponent
+    EditCustomerComponent,
+    DeleteCustomerComponent,
+    DeleteEmployeeComponent,
+    EditEmployeeComponent,
+    EditServiceComponent,
+    DeleteServiceComponent,
+    EditContractComponent,
+    DeleteContractComponent,
+    EditContractDetailComponent,
+    DeleteContractDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +69,9 @@ import { EditCustomerComponent } from './customer/edit-customer/edit-customer.co
     ReactiveFormsModule,
     NgxPaginationModule,
     ToastrModule.forRoot(),
+    MatDialogModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

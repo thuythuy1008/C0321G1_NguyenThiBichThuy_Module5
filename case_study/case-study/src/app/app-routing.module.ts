@@ -12,22 +12,33 @@ import {CreateContractComponent} from "./contract/create-contract/create-contrac
 import {ListContractDetailComponent} from "./contract_detail/list-contract-detail/list-contract-detail.component";
 import {CreateContractDetailComponent} from "./contract_detail/create-contract-detail/create-contract-detail.component";
 import {EditCustomerComponent} from "./customer/edit-customer/edit-customer.component";
+import {EditEmployeeComponent} from "./employee/edit-employee/edit-employee.component";
+import {EditServiceComponent} from "./service/edit-service/edit-service.component";
+import {EditContractComponent} from "./contract/edit-contract/edit-contract.component";
+import {EditContractDetailComponent} from "./contract_detail/edit-contract-detail/edit-contract-detail.component";
 
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
   {path:'customer-list', component:ListCustomerComponent},
   {path:'customer-create', component:CreateCustomerComponent},
-  {path:'customer-edit', component:EditCustomerComponent},
-  // {path:'customer-delete', component:DeleteCustomerComponent},
+  {path:'customer-edit/:id', component:EditCustomerComponent},
+
   {path:'employee-list', component:ListEmployeeComponent},
   {path:'employee-create', component:CreateEmployeeComponent},
+  {path:'employee-edit/:id', component:EditEmployeeComponent},
+
   {path:'service-list', component:ListServiceComponent},
   {path:'service-create', component:CreateServiceComponent},
+  {path:'service-edit/:id', component:EditServiceComponent},
+
   {path:'contract-list', component:ListContractComponent},
   {path:'contract-create', component:CreateContractComponent},
+  {path:'contract-edit/:id', component:EditContractComponent},
+
   {path:'contract-detail-list', component:ListContractDetailComponent},
   {path:'contract-detail-create', component:CreateContractDetailComponent},
+  {path:'contract-detail-edit/:id', component:EditContractDetailComponent},
 ];
 
 @NgModule({

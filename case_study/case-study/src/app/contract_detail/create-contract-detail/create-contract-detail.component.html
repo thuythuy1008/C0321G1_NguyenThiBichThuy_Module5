@@ -1,31 +1,45 @@
 <h1 class="text-center" style="color:crimson">Create Contract Detail</h1>
-<a class="btn btn-primary mb-2 ml-4" href="" role="button">Contract Detail list</a>
+<a class="btn btn-primary mb-2 ml-4" [routerLink]="'/contract-detail-list'" role="button">Contract Detail list</a>
 
-<form id="form" action=""  method="post">
-  <input type="hidden" />
+<form [formGroup]="createForm" (ngSubmit)="submitForm()">
   <div class="container">
     <div class="form-group">
       <label>Contract Id:</label>
-      <select class="form-control">
-        <option ></option>
+      <select class="form-control" name="contract" formControlName="contract">
+        <option *ngFor=" let c of contracts" [ngValue]="c"> {{c.id}}</option>
       </select>
     </div>
+    <p style="color: red" *ngIf="createForm.controls.contract.hasError('required') &&
+        createForm.controls.contract.dirty">
+      Please input contract!
+    </p>
 
     <div class="form-group">
       <label>Attach Service:</label>
-      <select class="form-control" >
-        <option ></option>
+      <select class="form-control" name="attachService" formControlName="attachService">
+        <option *ngFor=" let a of attachServices" [ngValue]="a"> {{a.name}}</option>
       </select>
     </div>
+    <p style="color: red" *ngIf="createForm.controls.attachService.hasError('required') &&
+        createForm.controls.attachService.dirty">
+      Please input attachService!
+    </p>
 
     <div class="form-group">
       <label>Quantity:</label>
-      <input type="text" class="form-control" >
-      <p class="text-danger" ></p>
+      <input type="text" class="form-control" formControlName="quantity">
     </div>
+    <p style="color: red" *ngIf="createForm.controls.quantity.hasError('required') &&
+        createForm.controls.quantity.dirty">
+      Please input quantity!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.quantity.hasError('min') &&
+        createForm.controls.quantity.dirty">
+      Please enter a number greater than 0!
+    </p>
 
     <div>
-      <input class="btn btn-warning" type="submit" value="Create contract detail">
+      <input class="btn btn-warning" type="submit" value="Create contract detail" [disabled]="createForm.invalid">
     </div>
   </div>
 </form>

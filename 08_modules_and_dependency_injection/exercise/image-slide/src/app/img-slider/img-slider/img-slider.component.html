@@ -1,0 +1,8 @@
+<div class="gallery-container">
+  <div class="gallery-item"
+       [style.max-width.%]="itemWidth" [style.flex-basis.%]="itemWidth">
+    <app-img-slide [src]="listImage[index]"></app-img-slide>
+    <button class="arrow prev" href="#" (click)="previous()"> Previous </button> |
+    <button class="arrow next" href="#" (click)="next()"> Next </button>
+  </div>
+</div>

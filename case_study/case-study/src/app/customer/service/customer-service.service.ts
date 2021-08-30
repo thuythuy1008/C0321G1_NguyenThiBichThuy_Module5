@@ -9,6 +9,7 @@ import {CustomerType} from "../model/customer-type";
 })
 export class CustomerServiceService {
   public API_CUSTOMER = 'http://localhost:3000/customer';
+  public API_CUSTOMER_TYPE = 'http://localhost:3000/customerType';
 
   constructor(private http: HttpClient) {
   }
@@ -17,20 +18,32 @@ export class CustomerServiceService {
     return this.http.get<Customer[]>(this.API_CUSTOMER);
   }
 
-  saveCustomer(customer): Observable<Customer> {
+  saveCustomer(customer: Customer): Observable<Customer> {
     return this.http.post<Customer>(this.API_CUSTOMER, customer);
   }
 
   getAllCustomerType(): Observable<CustomerType[]> {
-    return this.http.get<CustomerType[]>(this.API_CUSTOMER);
+    return this.http.get<CustomerType[]>(this.API_CUSTOMER_TYPE);
   }
 
   findById(id: number): Observable<Customer> {
-    return this.http.get<Customer>(`${this.API_CUSTOMER}/${id}`);
+    return this.http.get<Customer>(this.API_CUSTOMER + '/' + id);
   }
 
-  updateCustomer(id, customer): Observable<Customer> {
-    return this.http.put<Customer>(`${this.API_CUSTOMER}/${id}`, customer);
+  getById(id): Observable<Customer[]> {
+    return this.http.get<Customer[]>(this.API_CUSTOMER + '/' + id).pipe();
+  }
+
+  updateCustomer(id: number, customer: Customer): Observable<Customer> {
+    return this.http.patch<Customer>(this.API_CUSTOMER + '/' + id, customer);
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete(this.API_CUSTOMER + '/' + id);
+  }
+
+  search(name: string): Observable<Customer[]> {
+    return this.http.get<Customer[]>(this.API_CUSTOMER +'?customerName_like=' + name);
   }
 }
 

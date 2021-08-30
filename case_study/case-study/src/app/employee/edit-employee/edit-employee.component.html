@@ -1,0 +1,138 @@
+<h1 class="text-center" style="color:crimson">Create Employee</h1>
+<a class="btn btn-primary mb-2 ml-4" [routerLink]="'/employee-list'" role="button">Employee list</a>
+
+<form [formGroup]="editForm" (ngSubmit)="submitForm()">
+  <div class="container">
+    <div class="form-group">
+      <label>Employee Name:</label>
+      <input formControlName="employeeName" type="text" class="form-control">
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.employeeName.hasError('required') &&
+        editForm.controls.employeeName.dirty">
+      Please input employee name!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.employeeName.hasError('pattern') &&
+        editForm.controls.employeeName.dirty">
+      Please capitalize the first letter of each word!
+    </p>
+
+    <div class="form-group">
+      <label>Employee Birthday:</label>
+      <input formControlName="employeeBirthday" type="date" class="form-control">
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.employeeBirthday.hasError('required') &&
+        editForm.controls.employeeBirthday.dirty">
+      Please input employee birthday!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.employeeBirthday.hasError('invalid') &&
+        editForm.controls.employeeBirthday.dirty">
+      Please input >= 18!
+    </p>
+
+    <div class="form-group">
+      <label>Employee Id Card:</label>
+      <input formControlName="employeeIdCard" type="text" class="form-control">
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.employeeIdCard.hasError('required') &&
+        editForm.controls.employeeIdCard.dirty">
+      Please input employee id card!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.employeeIdCard.hasError('pattern') &&
+        editForm.controls.employeeIdCard.dirty">
+      Please re-enter in the format: XXXXXXXXX or XXXXXXXXXXXX (X: 0-9)!
+    </p>
+
+    <div class="form-group">
+      <label>Employee Salary:</label>
+      <div class="input-group mb-3">
+        <span class="input-group-text">$</span>
+        <input formControlName="employeeSalary" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+        <span class="input-group-text">VND</span>
+      </div>
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.employeeSalary.hasError('required') &&
+        editForm.controls.employeeSalary.dirty">
+      Please input employee salary!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.employeeSalary.hasError('min') &&
+        editForm.controls.employeeSalary.dirty">
+      Please enter a number greater than 0!
+    </p>
+
+    <div class="form-group">
+      <label>Employee Phone:</label>
+      <input formControlName="employeePhone" type="text" class="form-control">
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.employeePhone.hasError('required') &&
+        editForm.controls.employeePhone.dirty">
+      Please input employee phone!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.employeePhone.hasError('pattern') &&
+        editForm.controls.employeePhone.dirty">
+      Please re-enter in the format: 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or (84)+91xxxxxxx (x: 0-9)!
+    </p>
+
+    <div class="form-group">
+      <label>Employee Email:</label>
+      <input formControlName="employeeEmail" type="text" class="form-control">
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.employeeEmail.hasError('required') &&
+        editForm.controls.employeeEmail.dirty">
+      Please input email!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.employeeEmail.hasError('email') &&
+        editForm.controls.employeeEmail.dirty">
+      Please input right format!
+    </p>
+
+    <div class="form-group">
+      <label>Employee Address:</label>
+      <input formControlName="employeeAddress" type="text" class="form-control">
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.employeeAddress.hasError('required') &&
+        editForm.controls.employeeAddress.dirty">
+      Please input employee address!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.employeeAddress.hasError('pattern') &&
+        editForm.controls.employeeAddress.dirty">
+      Please capitalize the first letter of each word!
+    </p>
+
+    <div class="form-group">
+      <label>Position:</label>
+      <select class="form-control" name="position" formControlName="position" [compareWith]="compareFn">
+        <option *ngFor=" let p of positions" [ngValue]="p"> {{p.name}}</option>
+      </select>
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.position.hasError('required') &&
+        editForm.controls.position.dirty">
+      Please input position!
+    </p>
+
+    <div class="form-group">
+      <label>Education Degree:</label>
+      <select class="form-control" name="division" formControlName="division" [compareWith]="compareFn">
+        <option *ngFor=" let d of divisions" [ngValue]="d"> {{d.name}}</option>
+      </select>
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.division.hasError('required') &&
+        editForm.controls.division.dirty">
+      Please input division!
+    </p>
+
+    <div class="form-group">
+      <label>Division:</label>
+      <select class="form-control" name="educationDegree" formControlName="educationDegree" [compareWith]="compareFn">
+        <option *ngFor=" let ed of educationDegrees" [ngValue]="ed"> {{ed.name}}</option>
+      </select>
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.educationDegree.hasError('required') &&
+        editForm.controls.educationDegree.dirty">
+      Please input education degree!
+    </p>
+
+    <div>
+      <input class="btn btn-warning" type="submit" value="Edit employee" [disabled]="editForm.invalid">
+    </div>
+  </div>
+</form>

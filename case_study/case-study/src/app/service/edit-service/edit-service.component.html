@@ -1,0 +1,159 @@
+<h1  class="text-center" style="color:crimson">Create Service</h1>
+<a class="btn btn-primary mb-2 ml-4" [routerLink]="'/service-list'" role="button">Service list</a>
+
+<form [formGroup]="editForm" (ngSubmit)="submitForm()">
+  <div class="container">
+    <div class="form-group">
+      <label>Service Code:</label>
+      <input formControlName="serviceCode" type="text" class="form-control" >
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.serviceCode.hasError('required') &&
+        editForm.controls.serviceCode.dirty">
+      Please input service code!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.serviceCode.hasError('pattern') &&
+        editForm.controls.serviceCode.dirty">
+      Please re-enter in the format : DV-XXXX (X: 0-9)!
+    </p>
+
+    <div class="form-group">
+      <label>Service Name:</label>
+      <input formControlName="serviceName" type="text" class="form-control" >
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.serviceName.hasError('required') &&
+        editForm.controls.serviceName.dirty">
+      Please input service name!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.serviceName.hasError('pattern') &&
+        editForm.controls.serviceName.dirty">
+      Please capitalize the first letter of each word!
+    </p>
+
+    <div class="form-group">
+      <label>Service Area:</label>
+      <div class="input-group mb-3">
+        <input formControlName="serviceArea" type="text" class="form-control">
+        <span class="input-group-text">.00</span>
+      </div>
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.serviceArea.hasError('required') &&
+        editForm.controls.serviceArea.dirty">
+      Please input service area!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.serviceArea.hasError('min') &&
+        editForm.controls.serviceArea.dirty">
+      Please enter a number greater than 0!
+    </p>
+
+    <div class="form-group">
+      <label>Service Cost:</label>
+      <div class="input-group mb-3">
+        <span class="input-group-text">$</span>
+        <input formControlName="serviceCost" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" >
+        <span class="input-group-text">VND</span>
+      </div>
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.serviceCost.hasError('required') &&
+        editForm.controls.serviceCost.dirty">
+      Please input service cost!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.serviceCost.hasError('min') &&
+        editForm.controls.serviceCost.dirty">
+      Please enter a number greater than 0!
+    </p>
+
+    <div class="form-group">
+      <label>Service Max People:</label>
+      <input formControlName="serviceMaxPeople" type="text" class="form-control" >
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.serviceMaxPeople.hasError('required') &&
+        editForm.controls.serviceMaxPeople.dirty">
+      Please input service max people!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.serviceMaxPeople.hasError('min') &&
+        editForm.controls.serviceMaxPeople.dirty">
+      Please enter a number greater than 0!
+    </p>
+
+    <div class="form-group">
+      <label>Standard Room:</label>
+      <input formControlName="standardRoom" type="text" class="form-control" >
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.standardRoom.hasError('required') &&
+        editForm.controls.standardRoom.dirty">
+      Please input standard room!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.standardRoom.hasError('pattern') &&
+        editForm.controls.standardRoom.dirty">
+      Please capitalize the first letter of each word!
+    </p>
+
+    <div class="form-group">
+      <label>Description Other Convenience:</label>
+      <input formControlName="descriptionOtherConvenience" type="text" class="form-control">
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.descriptionOtherConvenience.hasError('required') &&
+        editForm.controls.descriptionOtherConvenience.dirty">
+      Please input description other convenience!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.descriptionOtherConvenience.hasError('pattern') &&
+        editForm.controls.descriptionOtherConvenience.dirty">
+      Please capitalize the first letter of each word!
+    </p>
+
+    <div class="form-group">
+      <label>Poll Area:</label>
+      <div class="input-group mb-3">
+        <input formControlName="poolArea" type="text" class="form-control" >
+        <span class="input-group-text">.00</span>
+      </div>
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.poolArea.hasError('required') &&
+        editForm.controls.poolArea.dirty">
+      Please input pool area!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.poolArea.hasError('min') &&
+        editForm.controls.poolArea.dirty">
+      Please enter a number greater than 0!
+    </p>
+
+    <div class="form-group">
+      <label>Number Of Floors:</label>
+      <input formControlName="numberOfFloors" type="text" class="form-control" >
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.numberOfFloors.hasError('required') &&
+        editForm.controls.numberOfFloors.dirty">
+      Please input number of floors!
+    </p>
+    <p style="color: red" *ngIf="editForm.controls.numberOfFloors.hasError('min') &&
+        editForm.controls.numberOfFloors.dirty">
+      Please enter a number greater than 0!
+    </p>
+
+    <div class="form-group">
+      <label>Service Type:</label>
+      <select class="form-control" name="serviceType" formControlName="serviceType" [compareWith]="compareFn">
+        <option *ngFor=" let st of serviceTypes" [ngValue]="st"> {{st.name}}</option>
+      </select>
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.serviceType.hasError('required') &&
+        editForm.controls.serviceType.dirty">
+      Please input serviceType!
+    </p>
+
+    <div class="form-group">
+      <label>Rent Type:</label>
+      <select class="form-control" name="renType" formControlName="renType" [compareWith]="compareFn">
+        <option *ngFor=" let rt of renTypes" [ngValue]="rt"> {{rt.name}}</option>
+      </select>
+    </div>
+    <p style="color: red" *ngIf="editForm.controls.renType.hasError('required') &&
+        editForm.controls.renType.dirty">
+      Please input rentType!
+    </p>
+
+    <div>
+      <input class="btn btn-warning" type="submit" value="Edit service" [disabled]="editForm.invalid">
+    </div>
+  </div>
+</form>

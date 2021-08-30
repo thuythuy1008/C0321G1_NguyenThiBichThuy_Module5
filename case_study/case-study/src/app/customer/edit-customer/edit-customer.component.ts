@@ -17,17 +17,18 @@ export class EditCustomerComponent implements OnInit {
 
   constructor(private customerService: CustomerServiceService, private router: Router,
               private toast: ToastrService, private activatedRoute: ActivatedRoute) {
-    this.id = Number(this.activatedRoute.snapshot.params.id);
-    const student = this.customerService.findById(this.id);
+    this.id = this.activatedRoute.snapshot.params.id;
   }
 
   ngOnInit(): void {
-    this.getData();
     this.formEdit();
+    this.getData();
+    // this.setCustomer();
   }
 
   formEdit() {
     this.editForm = new FormGroup({
+      id: new FormControl(''),
       customerCode: new FormControl('',
         [Validators.required, Validators.pattern('^(KH)-[0-9]{4}$')]),
       customerName: new FormControl('',
@@ -57,9 +58,26 @@ export class EditCustomerComponent implements OnInit {
   }
 
   getData() {
-    this.customerService.getAllCustomerType().subscribe(data => {
-      this.customerTypes = data;
+    this.customerService.getAllCustomerType().subscribe(value => {
+      this.customerTypes = value;
+      this.customerService.findById(this.id).subscribe(value => {
+        this.editForm.setValue(value);
+      });
     })
+  }
+
+  // setCustomer() {
+//   this.customerService.findById(this.id).subscribe(value => {
+//   this.editForm.setValue(value);
+// });
+  // }
+
+  submitForm() {
+    const customer = this.editForm.value;
+    this.customerService.updateCustomer(customer.id, customer).subscribe(() => {
+      this.router.navigateByUrl('/customer-list');
+      this.alert();
+    });
   }
 
   check(birthDay: AbstractControl): any {
@@ -73,11 +91,7 @@ export class EditCustomerComponent implements OnInit {
     this.toast.success('Edit successfuly!!!', 'title');
   }
 
-  submitForm() {
-    const customer = this.editForm.value;
-    // this.customerService.updateCustomer(this.id, customer).subscribe(() => {
-    //   this.router.navigateByUrl('/customer-list');
-    //   this.alert();
-    // })
+  compareFn(c1: any, c2: any): boolean {
+    return c1 && c2 ? c1.id === c2.id : c1 === c2;
   }
 }

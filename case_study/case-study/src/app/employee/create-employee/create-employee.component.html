@@ -1,71 +1,138 @@
 <h1 class="text-center" style="color:crimson">Create Employee</h1>
-<a class="btn btn-primary mb-2 ml-4" href="/employee" role="button">Employee list</a>
+<a class="btn btn-primary mb-2 ml-4" [routerLink]="'/employee-list'" role="button">Employee list</a>
 
-<form id="form" action="@{/create-employee}"  method="post">
-  <input type="hidden" />
+<form [formGroup]="createForm" (ngSubmit)="submitForm()">
   <div class="container">
     <div class="form-group">
       <label>Employee Name:</label>
-      <input type="text" class="form-control" >
+      <input formControlName="employeeName" type="text" class="form-control">
     </div>
+    <p style="color: red" *ngIf="createForm.controls.employeeName.hasError('required') &&
+        createForm.controls.employeeName.dirty">
+      Please input employee name!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.employeeName.hasError('pattern') &&
+        createForm.controls.employeeName.dirty">
+      Please capitalize the first letter of each word!
+    </p>
 
     <div class="form-group">
       <label>Employee Birthday:</label>
-      <input type="date" class="form-control" >
+      <input formControlName="employeeBirthday" type="date" class="form-control">
     </div>
+    <p style="color: red" *ngIf="createForm.controls.employeeBirthday.hasError('required') &&
+        createForm.controls.employeeBirthday.dirty">
+      Please input employee birthday!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.employeeBirthday.hasError('invalid') &&
+        createForm.controls.employeeBirthday.dirty">
+      Please input >= 18!
+    </p>
 
     <div class="form-group">
       <label>Employee Id Card:</label>
-      <input type="text" class="form-control" >
+      <input formControlName="employeeIdCard" type="text" class="form-control">
     </div>
+    <p style="color: red" *ngIf="createForm.controls.employeeIdCard.hasError('required') &&
+        createForm.controls.employeeIdCard.dirty">
+      Please input employee id card!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.employeeIdCard.hasError('pattern') &&
+        createForm.controls.employeeIdCard.dirty">
+      Please re-enter in the format: XXXXXXXXX or XXXXXXXXXXXX (X: 0-9)!
+    </p>
 
     <div class="form-group">
       <label>Employee Salary:</label>
       <div class="input-group mb-3">
         <span class="input-group-text">$</span>
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" >
+        <input formControlName="employeeSalary" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
         <span class="input-group-text">VND</span>
       </div>
     </div>
+    <p style="color: red" *ngIf="createForm.controls.employeeSalary.hasError('required') &&
+        createForm.controls.employeeSalary.dirty">
+      Please input employee salary!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.employeeSalary.hasError('min') &&
+        createForm.controls.employeeSalary.dirty">
+      Please enter a number greater than 0!
+    </p>
 
     <div class="form-group">
       <label>Employee Phone:</label>
-      <input type="text" class="form-control" >
+      <input formControlName="employeePhone" type="text" class="form-control">
     </div>
+    <p style="color: red" *ngIf="createForm.controls.employeePhone.hasError('required') &&
+        createForm.controls.employeePhone.dirty">
+      Please input employee phone!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.employeePhone.hasError('pattern') &&
+        createForm.controls.employeePhone.dirty">
+      Please re-enter in the format: 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or (84)+91xxxxxxx (x: 0-9)!
+    </p>
 
     <div class="form-group">
       <label>Employee Email:</label>
-      <input type="text" class="form-control" >
+      <input formControlName="employeeEmail" type="text" class="form-control">
     </div>
+    <p style="color: red" *ngIf="createForm.controls.employeeEmail.hasError('required') &&
+        createForm.controls.employeeEmail.dirty">
+      Please input email!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.employeeEmail.hasError('email') &&
+        createForm.controls.employeeEmail.dirty">
+      Please input right format!
+    </p>
 
     <div class="form-group">
       <label>Employee Address:</label>
-      <input type="text" class="form-control" >
+      <input formControlName="employeeAddress" type="text" class="form-control">
     </div>
+    <p style="color: red" *ngIf="createForm.controls.employeeAddress.hasError('required') &&
+        createForm.controls.employeeAddress.dirty">
+      Please input employee address!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.employeeAddress.hasError('pattern') &&
+        createForm.controls.employeeAddress.dirty">
+      Please capitalize the first letter of each word!
+    </p>
 
     <div class="form-group">
       <label>Position:</label>
-      <select class="form-control" >
-        <option ></option>
+      <select class="form-control" name="position" formControlName="position">
+        <option *ngFor=" let p of positions" [ngValue]="p"> {{p.name}}</option>
       </select>
     </div>
+    <p style="color: red" *ngIf="createForm.controls.position.hasError('required') &&
+        createForm.controls.position.dirty">
+      Please input position!
+    </p>
 
     <div class="form-group">
       <label>Education Degree:</label>
-      <select class="form-control" >
-        <option ></option>
+      <select class="form-control" name="division" formControlName="division">
+        <option *ngFor=" let d of divisions" [ngValue]="d"> {{d.name}}</option>
       </select>
     </div>
+    <p style="color: red" *ngIf="createForm.controls.division.hasError('required') &&
+        createForm.controls.division.dirty">
+      Please input division!
+    </p>
 
     <div class="form-group">
       <label>Division:</label>
-      <select class="form-control" >
-        <option ></option>
+      <select class="form-control" name="educationDegree" formControlName="educationDegree">
+        <option *ngFor=" let ed of educationDegrees" [ngValue]="ed"> {{ed.name}}</option>
       </select>
     </div>
+    <p style="color: red" *ngIf="createForm.controls.educationDegree.hasError('required') &&
+        createForm.controls.educationDegree.dirty">
+      Please input education degree!
+    </p>
 
     <div>
-      <input class="btn btn-warning" type="submit" value="Create employee">
+      <input class="btn btn-warning" type="submit" value="Create employee" [disabled]="createForm.invalid">
     </div>
   </div>
 </form>

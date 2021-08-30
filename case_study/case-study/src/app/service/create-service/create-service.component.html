@@ -1,80 +1,159 @@
-<h1  class="text-center" style="color:crimson">Create Villa Service</h1>
-<a class="btn btn-primary mb-2 ml-4" href="" role="button">Service list</a>
+<h1  class="text-center" style="color:crimson">Create Service</h1>
+<a class="btn btn-primary mb-2 ml-4" [routerLink]="'/service-list'" role="button">Service list</a>
 
-<form id="form" action="@{/create-service-villa}" method="post">
-  <input type="hidden" />
+<form [formGroup]="createForm" (ngSubmit)="submitForm()">
   <div class="container">
     <div class="form-group">
       <label>Service Code:</label>
-      <input type="text" class="form-control" >
+      <input formControlName="serviceCode" type="text" class="form-control" >
     </div>
+    <p style="color: red" *ngIf="createForm.controls.serviceCode.hasError('required') &&
+        createForm.controls.serviceCode.dirty">
+      Please input service code!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.serviceCode.hasError('pattern') &&
+        createForm.controls.serviceCode.dirty">
+      Please re-enter in the format : DV-XXXX (X: 0-9)!
+    </p>
 
     <div class="form-group">
       <label>Service Name:</label>
-      <input type="text" class="form-control" >
+      <input formControlName="serviceName" type="text" class="form-control" >
     </div>
+    <p style="color: red" *ngIf="createForm.controls.serviceName.hasError('required') &&
+        createForm.controls.serviceName.dirty">
+      Please input service name!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.serviceName.hasError('pattern') &&
+        createForm.controls.serviceName.dirty">
+      Please capitalize the first letter of each word!
+    </p>
 
     <div class="form-group">
       <label>Service Area:</label>
       <div class="input-group mb-3">
-        <input type="text" class="form-control">
+        <input formControlName="serviceArea" type="text" class="form-control">
         <span class="input-group-text">.00</span>
       </div>
     </div>
+    <p style="color: red" *ngIf="createForm.controls.serviceArea.hasError('required') &&
+        createForm.controls.serviceArea.dirty">
+      Please input service area!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.serviceArea.hasError('min') &&
+        createForm.controls.serviceArea.dirty">
+      Please enter a number greater than 0!
+    </p>
 
     <div class="form-group">
       <label>Service Cost:</label>
       <div class="input-group mb-3">
         <span class="input-group-text">$</span>
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" >
+        <input formControlName="serviceCost" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" >
         <span class="input-group-text">VND</span>
       </div>
     </div>
+    <p style="color: red" *ngIf="createForm.controls.serviceCost.hasError('required') &&
+        createForm.controls.serviceCost.dirty">
+      Please input service cost!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.serviceCost.hasError('min') &&
+        createForm.controls.serviceCost.dirty">
+      Please enter a number greater than 0!
+    </p>
 
     <div class="form-group">
       <label>Service Max People:</label>
-      <input type="text" class="form-control" >
+      <input formControlName="serviceMaxPeople" type="text" class="form-control" >
     </div>
+    <p style="color: red" *ngIf="createForm.controls.serviceMaxPeople.hasError('required') &&
+        createForm.controls.serviceMaxPeople.dirty">
+      Please input service max people!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.serviceMaxPeople.hasError('min') &&
+        createForm.controls.serviceMaxPeople.dirty">
+      Please enter a number greater than 0!
+    </p>
 
     <div class="form-group">
       <label>Standard Room:</label>
-      <input type="text" class="form-control" >
+      <input formControlName="standardRoom" type="text" class="form-control" >
     </div>
+    <p style="color: red" *ngIf="createForm.controls.standardRoom.hasError('required') &&
+        createForm.controls.standardRoom.dirty">
+      Please input standard room!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.standardRoom.hasError('pattern') &&
+        createForm.controls.standardRoom.dirty">
+      Please capitalize the first letter of each word!
+    </p>
 
     <div class="form-group">
       <label>Description Other Convenience:</label>
-      <input type="text" class="form-control">
+      <input formControlName="descriptionOtherConvenience" type="text" class="form-control">
     </div>
+    <p style="color: red" *ngIf="createForm.controls.descriptionOtherConvenience.hasError('required') &&
+        createForm.controls.descriptionOtherConvenience.dirty">
+      Please input description other convenience!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.descriptionOtherConvenience.hasError('pattern') &&
+        createForm.controls.descriptionOtherConvenience.dirty">
+      Please capitalize the first letter of each word!
+    </p>
 
     <div class="form-group">
       <label>Poll Area:</label>
       <div class="input-group mb-3">
-        <input type="text" class="form-control" >
+        <input formControlName="poolArea" type="text" class="form-control" >
         <span class="input-group-text">.00</span>
       </div>
     </div>
+    <p style="color: red" *ngIf="createForm.controls.poolArea.hasError('required') &&
+        createForm.controls.poolArea.dirty">
+      Please input pool area!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.poolArea.hasError('min') &&
+        createForm.controls.poolArea.dirty">
+      Please enter a number greater than 0!
+    </p>
 
     <div class="form-group">
       <label>Number Of Floors:</label>
-      <input type="text" class="form-control" >
+      <input formControlName="numberOfFloors" type="text" class="form-control" >
     </div>
+    <p style="color: red" *ngIf="createForm.controls.numberOfFloors.hasError('required') &&
+        createForm.controls.numberOfFloors.dirty">
+      Please input number of floors!
+    </p>
+    <p style="color: red" *ngIf="createForm.controls.numberOfFloors.hasError('min') &&
+        createForm.controls.numberOfFloors.dirty">
+      Please enter a number greater than 0!
+    </p>
 
     <div class="form-group">
       <label>Service Type:</label>
-      <select class="form-control" >
-        <option ></option>
+      <select class="form-control" name="serviceType" formControlName="serviceType">
+        <option *ngFor=" let st of serviceTypes" [ngValue]="st"> {{st.name}}</option>
       </select>
     </div>
+    <p style="color: red" *ngIf="createForm.controls.serviceType.hasError('required') &&
+        createForm.controls.serviceType.dirty">
+      Please input serviceType!
+    </p>
 
     <div class="form-group">
       <label>Rent Type:</label>
-      <select class="form-control" >
-        <option ></option>
+      <select class="form-control" name="renType" formControlName="renType">
+        <option *ngFor=" let rt of renTypes" [ngValue]="rt"> {{rt.name}}</option>
       </select>
     </div>
+    <p style="color: red" *ngIf="createForm.controls.renType.hasError('required') &&
+        createForm.controls.renType.dirty">
+      Please input rentType!
+    </p>
 
     <div>
-      <input class="btn btn-warning" type="submit" value="Create villa service">
+      <input class="btn btn-warning" type="submit" value="Create service" [disabled]="createForm.invalid">
     </div>
   </div>
 </form>

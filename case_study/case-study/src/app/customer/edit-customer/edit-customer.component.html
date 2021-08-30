@@ -112,7 +112,7 @@
 
     <div class="form-group">
       <label>Customer Type:</label>
-      <select class="form-control" name="customerType" formControlName="customerType">
+      <select class="form-control" name="customerType" formControlName="customerType" [compareWith]="compareFn">
         <option *ngFor=" let ct of customerTypes" [ngValue]="ct"> {{ct.name}}</option>
       </select>
     </div>
@@ -122,7 +122,7 @@
     </p>
 
     <div>
-      <input class="btn btn-warning" type="submit" value="Edit customer" [disabled]="editForm.invalid">
+      <input class="btn btn-warning" type="submit" value="Edit customer">
     </div>
   </div>
 </form>
